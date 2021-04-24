@@ -122,7 +122,7 @@ const LoginPage = ({navigation}) =>{
                         {
                             let userToken;
                             userToken = String(foundUser[0].userToken);
-                            navigation.navigate('Main');
+                            navigation.navigate('Menu');
                         }}}
                     style={[styles.signIn,
                         {
