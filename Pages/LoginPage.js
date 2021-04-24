@@ -14,12 +14,12 @@ import {
 } from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
-import Users from '../example/users';
+import {Users} from '../example/users';
 
+import {Menu} from '../Pages/RootStackPage';
 
 const LoginPage = ({navigation}) =>{
     const [username, setUsername] = useState('');
