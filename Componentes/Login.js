@@ -63,6 +63,7 @@ const Login = ({ navigation }) => {
                 .then((data) => {
                     console.log(data.data.token);
                     alert('ok');
+                    //re-dyrect
                     // localStorage.setItem("token", data.data.token);
                 })
                 .catch((error) => {

@@ -1,30 +1,16 @@
 import React, {Component } from 'react';
 import {  
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  ImageBackground,
-  TextInput,
-  Button,
-  TouchableOpacity,
-  Alert
+  StyleSheet,Text,View,Image,Dimensions,ImageBackground,TextInput,Button,TouchableOpacity,Alert
 } from 'react-native';
 
 import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
+  LineChart,BarChart, PieChart,ProgressChart,ContributionGraph,StackedBarChart
 } from "react-native-chart-kit";
 
 
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
-// import LoginPage from './LoginPage';
+// import Login from './Login';
 const chartConfig = {
   backgroundGradientFrom: "#1E2923",
   backgroundGradientFromOpacity: 0,

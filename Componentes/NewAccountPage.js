@@ -1,18 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState } from 'react';
-import {  
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  Button,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import {  StyleSheet,Text, View,Image,TextInput, Button,TouchableOpacity,Alert,} from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
-// import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
