@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
+// import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -189,7 +189,7 @@ const NewAccountPage = ({navigation}) =>{
     
     TextInput: {
       flex: 1,
-      marginTop: Platform.OS === 'ios' ? 0 : -12,
+    //   marginTop: Platform.OS === 'ios' ? 0 : -12,
       paddingLeft: 10,
       color: '#05375a'
     },

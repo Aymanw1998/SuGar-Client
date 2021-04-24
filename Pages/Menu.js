@@ -102,15 +102,3 @@ export const Menu = ({ navigation }) => {
     </>);
 };
 
-const RootStackPage = () => {
-  const RootStack = createStackNavigator();
-  return (
-    <RootStack.Navigator headerMode='none'>
-      <RootStack.Screen name="Login" component={Login} />
-      <RootStack.Screen name="NewAccount" component={NewAccountPage} />
-      <RootStack.Screen name="Menu" component={Menu} />
-    </RootStack.Navigator>
-  );
-}
-
-export default RootStackPage;
