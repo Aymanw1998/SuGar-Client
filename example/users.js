@@ -1,4 +1,4 @@
-export default Users= [
+export const Users = [
     {
         _id: 1,
         id: '209138155',

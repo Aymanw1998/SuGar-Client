@@ -17,6 +17,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+import LoginPage from './LoginPage';
+import NewAccountPage from './NewAccountPage';
 import HomePage from './HomePage';
 
 const Stack = createStackNavigator();
@@ -67,43 +70,9 @@ const NavigationDrawerStructure = (props) => {
      </Stack.Navigator>
    );
  }
- 
-//  function secondScreenStack({ navigation }) {
-//    return (
-//      <Stack.Navigator
-//        initialRouteName="LoginPage"
-//        screenOptions={{
-//          headerLeft: () => (
-//            <NavigationDrawerStructure navigationProps={navigation} />
-//          ),
-//          headerStyle: {
-//            backgroundColor: '#f4511e', //Set Header color
-//          },
-//          headerTintColor: '#fff', //Set Header text color
-//          headerTitleStyle: {
-//            fontWeight: 'bold', //Set Header text style
-//          },
-//        }}>
-//        <Stack.Screen
-//          name="LoginPage"
-//          component={LoginPage}
-//          options={{
-//            title: 'LoginPage', //Set Header Title
-//          }}
-//        />
-//        <Stack.Screen
-//          name="NewAccount"
-//          component={NewAccountPage}
-//          options={{
-//            title: 'NewAccount', //Set Header Title
-//          }}
-//        />
-//      </Stack.Navigator>
-//    );
-//  }
- 
-const RootStackPage = ()=>{
-   return(
+
+export const Menu = ({navigation}) => {
+    return(
       <>
        {/* <NavigationContainer> */}
       <Drawer.Navigator
@@ -137,15 +106,21 @@ const RootStackPage = ()=>{
  }}
           component={firstScreenStack}
         />
-        {/* <Drawer.Screen
-          name="SecondPage"
-          options={{ drawerLabel: 'Second page Option' }}
-          component={secondScreenStack}
-        /> */}
       </Drawer.Navigator>
     {/* </NavigationContainer> */}
-   </>
-   );
+   </>);
+};
+
+const RootStackPage = ()=>{
+   const RootStack = createStackNavigator();
+   return(
+   
+   <RootStack.Navigator headerMode='none'>
+        <RootStack.Screen name = "Login" component= {LoginPage}/>
+        <RootStack.Screen name = "NewAccount" component= {NewAccountPage}/>
+        <RootStack.Screen name = "Menu" component= {Menu}/>
+    </RootStack.Navigator>
+    );
 }
 
 export default RootStackPage;

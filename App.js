@@ -7,9 +7,11 @@ import RootStackPage from './Pages/RootStackPage'
 
 const  App = () =>{
   return(
+    <>
   <NavigationContainer>
     <RootStackPage/>
   </NavigationContainer>
+  </>
     );
 }
 
