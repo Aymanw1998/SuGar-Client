@@ -6,6 +6,7 @@ import {
 import {
   LineChart,BarChart, PieChart,ProgressChart,ContributionGraph,StackedBarChart
 } from "react-native-chart-kit";
+import Header from './Header';
 
 
 // import { NavigationContainer } from '@react-navigation/native';
@@ -26,8 +27,9 @@ const HomePage  = ({navigation}) => {
     
   return (
         <View style={styles.body}>
-            <ImageBackground source={require("../assets/SuGar.png")} style={styles.image}/>
-            <ImageBackground style={styles.menuicon} source={require("../assets/menu-icon.png")}/>
+          <Header></Header>
+            {/* <ImageBackground source={require("../assets/SuGar.png")} style={styles.image}/>
+            <ImageBackground style={styles.menuicon} source={require("../assets/menu-icon.png")}/> */}
 
             {/* <View> 
               <Text>Bezier Line Chart</Text>

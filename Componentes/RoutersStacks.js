@@ -109,6 +109,8 @@ const RootStackPage = () => {
       <RootStack.Screen name="Login" component={Login} />
       <RootStack.Screen name="NewAccount" component={NewAccountPage} />
       <RootStack.Screen name="Menu" component={Menu} />
+      <RootStack.Screen name="HomePage" component={HomePage} />
+
     </RootStack.Navigator>
   );
 }

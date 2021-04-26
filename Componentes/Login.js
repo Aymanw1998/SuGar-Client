@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, Dimensions, Alert, Platform, } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, Dimensions, Alert, Platform, AsyncStorage } from 'react-native';
 import axios from 'axios';
 import Joi from 'joi-browser';
 
@@ -16,12 +16,13 @@ const Login = ({ navigation }) => {
     const [showPass, SetShowPass] = useState(true);
     const [errors, setError] = React.useState({});
 
+
     const joiSchema = {
         email: Joi.string().email().required(),
         pass: Joi.string().required()
     }
 
-    const loginClick = (event) => {
+    const loginClick = async(event) => {
         event.preventDefault();
 
         const our_data = {
@@ -62,9 +63,11 @@ const Login = ({ navigation }) => {
             })
                 .then((data) => {
                     console.log(data.data.token);
-                    alert('ok');
                     //re-dyrect
-                    // localStorage.setItem("token", data.data.token);
+                    //AsyncStorage.setItem("token", data.data.token);
+                    //let name = AsyncStorage.getItem("token");
+                    //console.log(name); ///wired!!!!
+                    navigation.navigate('HomePage')
                 })
                 .catch((error) => {
                     console.log(error.response);
