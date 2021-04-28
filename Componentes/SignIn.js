@@ -16,8 +16,8 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 
 const Signin = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("shanilevi01011@gmail.com");
+  const [password, setPassword] = useState("123");
   const [showPass, SetShowPass] = useState(true);
   const [errors, setError] = React.useState({});
 
@@ -26,7 +26,7 @@ const Signin = ({ navigation }) => {
     pass: Joi.string().required(),
   };
 
-  const loginClick = (event) => {
+  const loginClick = async (event) => {
     event.preventDefault();
 
     const our_data = {
@@ -65,10 +65,11 @@ const Signin = ({ navigation }) => {
         },
       })
         .then((data) => {
-          console.log(data.data.token);
           alert("ok");
           //re-dyrect
           // localStorage.setItem("token", data.data.token);
+          console.log(data.data.token); ///wired!!!!
+          navigation.navigate("Menu", { token: data.data.token });
         })
         .catch((error) => {
           console.log(error.response);
@@ -103,20 +104,21 @@ const Signin = ({ navigation }) => {
             placeholder="Your Email"
             style={styles.TextInput}
             autoCapitalize="none"
+            value="shanilevi01011@gmail.com"
             onChangeText={(val) => setEmail(val)}
           />
-
-          <Text style={styles.error}>{errors.email}</Text>
         </View>
+        <Text style={styles.error}>{errors.email}</Text>
 
         {/* Password: */}
-        <Text style={[styles.meta_Title, { marginTop: 30 }]}>Password</Text>
+        <Text style={[styles.meta_Title, { marginTop: 10 }]}>Password</Text>
         <View style={styles.meta_Title}>
           <FontAwesome name="lock" color="#05375a" size={20} />
           <TextInput
             placeholder="Your Password"
             style={styles.TextInput}
             autoCapitalize="none"
+            value="123"
             secureTextEntry={showPass ? true : false}
             onChangeText={(val) => setPassword(val)}
           />
@@ -135,7 +137,17 @@ const Signin = ({ navigation }) => {
         <Text style={styles.error}>{errors.pass}</Text>
 
         <View style={styles.button}>
-          <TouchableOpacity onPress={loginClick}>
+          <TouchableOpacity
+            onPress={loginClick}
+            style={[
+              styles.signIn,
+              {
+                borderColor: "#40E0D0",
+                borderWidth: 1,
+                backgroundColor: "#009387",
+              },
+            ]}
+          >
             <Text style={[styles.textSignIn, { color: "#009387" }]}>
               SignIn
             </Text>

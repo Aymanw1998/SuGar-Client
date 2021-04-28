@@ -13,13 +13,13 @@ import * as Animatable from "react-native-animatable";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 
-const Idntification_data_SignUp = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [pass, setPassword] = useState("");
-  const [showPass, SetShowPass] = useState(true);
-  const [passC, setPasswordC] = useState("");
-  const [showPassC, SetShowPassC] = useState(true);
-
+const Private_data_SignUp = ({ navigation, route }) => {
+  const { email, pass } = route.params;
+  //const { pass } = route.params;
+  console.log(email + " " + pass);
+  const [ID, setID] = useState("");
+  const [FirstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
   return (
     <View style={styles.body}>
       <StatusBar backgroundColor="#009387" barStyle="light-content" />
@@ -42,74 +42,57 @@ const Idntification_data_SignUp = ({ navigation }) => {
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.Title}>Sing Up</Text>
         {/* ID Numer: */}
-        <Text style={styles.meta_Title}>Email</Text>
+        <Text style={styles.meta_Title}>ID</Text>
         <View style={styles.meta_Title}>
-          <FontAwesome name="at" color="#05375a" size={20} />
+          <FontAwesome name="id-card" color="#05375a" size={20} />
           <TextInput
-            placeholder="Your Email"
+            placeholder="Your ID"
             style={styles.TextInput}
             autoCapitalize="none"
-            onChangeText={(val) => setEmail(val)}
+            onChangeText={(val) => setID(val)}
           />
-          {/* {username.Text ? (
-            <Animatable.View animation="bounceIn">
-              <Feather name="check-circle" color="green" size={2} />
-            </Animatable.View>
-          ) : null} */}
         </View>
 
-        {/* Password: */}
+        {/* Name: */}
         <Text style={[styles.meta_Title, { marginTop: 30 }]}>Password</Text>
         <View style={styles.meta_Title}>
-          <FontAwesome name="lock" color="#05375a" size={20} />
+          <FontAwesome name="file" color="#05375a" size={20} />
           <TextInput
-            placeholder="Your Password"
+            placeholder="Fist name"
             style={styles.TextInput}
             autoCapitalize="none"
-            secureTextEntry={showPass ? true : false}
-            onChangeText={(val) => setPassword(val)}
+            onChangeText={(val) => setFirstName(val)}
           />
           <TouchableOpacity
             onPress={() => {
               SetShowPass(!showPass);
             }}
-          >
-            {showPass ? (
-              <Feather name="eye-off" color="gray" size={20} />
-            ) : (
-              <Feather name="eye" color="gray" size={20} />
-            )}
-          </TouchableOpacity>
+          ></TouchableOpacity>
         </View>
         <View style={styles.meta_Title}>
-          <FontAwesome name="lock" color="#05375a" size={20} />
+          <FontAwesome name="file" color="#05375a" size={20} />
           <TextInput
-            placeholder="Confirm your Password"
+            placeholder="Last Name"
             style={styles.TextInput}
             autoCapitalize="none"
-            secureTextEntry={showPassC ? true : false}
-            onChangeText={(password) => setPasswordC(password)}
+            onChangeText={(val) => setLastName(val)}
           />
           <TouchableOpacity
             onPress={() => {
-              SetShowPassC(!showPassC);
+              SetShowPass(!showPass);
             }}
-          >
-            {showPassC ? (
-              <Feather name="eye-off" color="gray" size={20} />
-            ) : (
-              <Feather name="eye" color="gray" size={20} />
-            )}
-          </TouchableOpacity>
+          ></TouchableOpacity>
         </View>
-        {/* Next */}
+
         <View style={styles.button}>
           <TouchableOpacity
             onPress={() => {
-              console.log(email + " " + pass);
-              navigation.navigate("Private_data_SignUp", {
+              navigation.navigate("Role_data_SignUp", {
                 email: email,
                 pass: pass,
+                id: ID,
+                firstname: FirstName,
+                lastname: LastName,
               });
             }}
             style={[
@@ -129,7 +112,7 @@ const Idntification_data_SignUp = ({ navigation }) => {
   );
 };
 
-export default Idntification_data_SignUp;
+export default Private_data_SignUp;
 const styles = StyleSheet.create({
   body: {
     flex: 1,

@@ -15,9 +15,9 @@ import Feather from "react-native-vector-icons/Feather";
 
 const Role_data_SignUp = ({ navigation, route }) => {
   const { email, pass, id, firstname, lastname } = route.params;
-  const [ID, setID] = useState("");
-  const [FirstName, setFirstName] = useState("");
-  const [LastName, setLastName] = useState("");
+  const SednUpClick = (event) => {
+    console.log(event);
+  };
   return (
     <View style={styles.body}>
       <StatusBar backgroundColor="#009387" barStyle="light-content" />
@@ -30,32 +30,81 @@ const Role_data_SignUp = ({ navigation, route }) => {
           onPress={() => {
             navigation.goBack();
           }}
-        >
-          <Image
-            style={styles.backicon}
-            source={require("../../assets/back-icon.png")}
-          />
-        </TouchableOpacity>
+        ></TouchableOpacity>
       </View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.Title}>Sing Up</Text>
-        {/* <Text>
-          {email} {pass} {id} {firstname} {lastname}
-        </Text> */}
-
-        <View style={styles.button}>
-          <TouchableOpacity
-            style={[
-              styles.signIn,
-              {
-                borderColor: "#40E0D0",
-                borderWidth: 1,
-                backgroundColor: "#009387",
-              },
-            ]}
-          >
-            <Text style={[styles.textSignIn, { color: "#009387" }]}>Next</Text>
-          </TouchableOpacity>
+        <Text style={styles.meta_Title}>Role:</Text>
+        <View style={{ alignItems: "center", justifyContent: "center" }}>
+          <>
+            <TouchableOpacity onPress={() => SednUpClick("Patient")}>
+              <Image
+                style={{
+                  width: 50,
+                  height: 50,
+                  marginTop: 10,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                source={require("../../assets/patient-icon.png")}
+              />
+              <Text
+                style={{
+                  fontSize: 20,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Patient
+              </Text>
+            </TouchableOpacity>
+          </>
+          <>
+            <TouchableOpacity onPress={() => SednUpClick("Person")}>
+              <Image
+                style={{
+                  width: 50,
+                  height: 50,
+                  marginTop: 10,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                source={require("../../assets/person-icon.png")}
+              />
+              <Text
+                style={{
+                  fontSize: 20,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Person
+              </Text>
+            </TouchableOpacity>
+          </>
+          <>
+            <TouchableOpacity onPress={() => SednUpClick("Doctor")}>
+              <Image
+                style={{
+                  width: 50,
+                  height: 50,
+                  marginTop: 10,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                source={require("../../assets/doctor-icon.png")}
+              />
+              <Text
+                style={{
+                  fontSize: 20,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Doctor
+              </Text>
+            </TouchableOpacity>
+          </>
         </View>
       </Animatable.View>
     </View>
